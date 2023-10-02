@@ -13,7 +13,9 @@ import {
 function App() {
   const [mode,setMode] = useState('light'); //Whether dark mode is enable or not 
 
-  const toggleMode = ()=>{
+  const toggleMode = (cls)=>{
+    console.log(cls)
+    
     if(mode==='light'){
       setMode('dark');
       document.body.style.backgroundColor = '#213a81';
@@ -25,20 +27,20 @@ function App() {
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      document.title = 'Textutils - Light Mode' ;
+      // document.title = 'Textutils - Light Mode' ;
     }
   }
   return (
-    <>
+    <>  
   {/* <Navbar title = "Textutils" aboutText="About Textutils"/> */}
   <BrowserRouter >
-    <Navbar title="MyApp" mode={mode} toggleMode={toggleMode} />
+    <Navbar title="Textutils" mode={mode} toggleMode={toggleMode} />
       <Routes>
-        <Route exact path="/About" element={<About aboutus="About Us" />}></Route>
-        <Route exact path="/" element={<TextForm formlabel="Enter Your Text" mode={mode} />}></Route>
+        <Route exact path="/About" element={<About aboutus="About Us" mode={mode}/>}></Route>
+        <Route exact path="/" element={<TextForm heading="Enter Your Text" mode={mode} />}></Route>
       </Routes>
     </BrowserRouter>
-  {/* /* <About/>  */}
+  {/* <About mode={mode}/>  */}
    </>
   );
 }
