@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-     } from "react-router-dom";
+// import {
+//     BrowserRouter,
+//     Routes,
+//     Route,
+//      } from "react-router-dom";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     
     if(mode==='light'){
       setMode('dark');
-      document.body.style.backgroundColor = '#213a81';
+      document.body.style.backgroundColor = '#100c08';
       document.title = 'Textutils - Dark Mode' ;
       // setInterval(()=>{
       //   document.title = 'Textutils is good'
@@ -33,13 +33,13 @@ function App() {
   return (
     <>  
   {/* <Navbar title = "Textutils" aboutText="About Textutils"/> */}
-  <BrowserRouter >
+  {/* <BrowserRouter > */}
     <Navbar title="Textutils" mode={mode} toggleMode={toggleMode} />
-      <Routes>
-        <Route exact path="/About" element={<About aboutus="About Us" mode={mode}/>}></Route>
-        <Route exact path="/" element={<TextForm heading="Enter Your Text" mode={mode} />}></Route>
-      </Routes>
-    </BrowserRouter>
+      {/* <Routes> */}
+        {/* <Route exact path="/About" element={<About aboutus="About Us" mode={mode}/>}></Route> */}
+        <TextForm heading="Enter Your Text" mode={mode} /> 
+      {/* </Routes>
+    </BrowserRouter> */}
   {/* <About mode={mode}/>  */}
    </>
   );
